@@ -289,7 +289,7 @@ if "recommendations" in st.session_state:
                     st.info(st.session_state[f"explain_{movie['movieId']}"])
                 st.markdown("</div>", unsafe_allow_html=True)
 
-this is another streamlit file which is inside frontend.
+
 
 import streamlit as st
 import requests
