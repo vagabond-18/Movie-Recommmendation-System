@@ -4,19 +4,15 @@ sys.path.append(os.path.abspath("."))
 
 import streamlit as st
 import requests
-import sys
-import os
+
 import re
 
-# ===============================
-# Backend import path
-# ===============================
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backend", "model"))
-if BASE_DIR not in sys.path:
-    sys.path.insert(0, BASE_DIR)
+from backend.model.recommender import (
+    recommend_movies,
+    explain_recommendation,
+    movies
+)
 
-from recommender import recommend_movies, explain_recommendation
-from recommender import movies
 
 # ===============================
 # TMDB SETTINGS
