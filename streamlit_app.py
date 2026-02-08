@@ -4,7 +4,6 @@ sys.path.append(os.path.abspath("."))
 
 import streamlit as st
 import requests
-
 import re
 
 from backend.model.recommender import (
@@ -12,7 +11,6 @@ from backend.model.recommender import (
     explain_recommendation,
     movies
 )
-
 
 # ===============================
 # TMDB SETTINGS
@@ -64,6 +62,16 @@ def get_movie_poster(title: str) -> str:
 # Page Config
 # ===============================
 st.set_page_config(page_title="🎬 ReelSense", layout="wide")
+
+# ===============================
+# Hide default Streamlit footer
+# ===============================
+hide_streamlit_style = """
+    <style>
+    footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # ===============================
 # CSS Styling - Multiple Harmonious Warm Colors
@@ -286,16 +294,15 @@ if "recommendations" in st.session_state:
                 st.markdown("</div>", unsafe_allow_html=True)
 
 # ===============================
-# Hide default Streamlit footer
+# Custom Footer - Team Tech Titans
 # ===============================
-hide_streamlit_style = """
-    <style>
-    footer {visibility: hidden;}
-    </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-
-import streamlit as st
-import requests
-import re
+st.markdown(
+    """
+    <div style='position:fixed; bottom:0; width:100%; text-align:center; 
+                padding:10px 0; background: linear-gradient(90deg,#ffb74d,#ff9800);
+                color:white; font-weight:600; z-index:1000;'>
+        Made with ❤️ by Team Tech Titans
+    </div>
+    """,
+    unsafe_allow_html=True
+)
