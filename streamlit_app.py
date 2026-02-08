@@ -285,6 +285,15 @@ if "recommendations" in st.session_state:
                     st.info(st.session_state[f"explain_{movie['movieId']}"])
                 st.markdown("</div>", unsafe_allow_html=True)
 
+# ===============================
+# Hide default Streamlit footer
+# ===============================
+hide_streamlit_style = """
+    <style>
+    footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 import streamlit as st
